@@ -10,6 +10,9 @@ import morgan from "morgan";
 import { fileURLToPath } from "url";
 import authRoutes from "./routes/auth.js";
 import { register } from "./controllers/auth.js";
+import usersRoutes from "./routes/users.js";
+import { verify } from "crypto";
+import { verifyToken } from "./middleware/auth.js";
 
 /* CONFIGURATION */
 const __filename = fileURLToPath(import.meta.url);
@@ -41,6 +44,7 @@ app.post("/auth/register", upload.single("picture"), register);
 
 /* ROUTES */
 app.use("/auth", authRoutes);
+app.use("/users", usersRoutes);
 
 /* MONGOOSE SETUP */
 const PORT = process.env.PORT || 6001;
