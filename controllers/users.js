@@ -21,3 +21,4 @@ export const getUserFriends = async (req, res) => {
     const formattedFriends = friends.map(
         ({ _id, firstName }) =>
     )
+    };
